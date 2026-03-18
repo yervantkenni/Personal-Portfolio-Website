@@ -8,21 +8,21 @@ const body = document.body;
 // 1. Check if the user previously saved a theme preference
 let theme = localStorage.getItem('portfolio-theme');
 
-// 2. Default is dark (no classes). If they saved "light", apply it immediately
-if (theme === 'light') {
-    body.classList.add('light-mode');
+// 2. Default is light (no classes). If they saved "dark", apply it immediately
+if (theme === 'dark') {
+    body.classList.add('dark-mode');
 }
 
 // 3. Listen for clicks on the toggle button
 darkModeToggle.addEventListener('click', function (event) {
     event.preventDefault();
 
-    body.classList.toggle('light-mode');
+    body.classList.toggle('dark-mode');
 
-    if (body.classList.contains('light-mode')) {
-        localStorage.setItem('portfolio-theme', 'light');
-    } else {
+    if (body.classList.contains('dark-mode')) {
         localStorage.setItem('portfolio-theme', 'dark');
+    } else {
+        localStorage.setItem('portfolio-theme', 'light');
     }
 });
 
