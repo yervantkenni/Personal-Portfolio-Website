@@ -35,17 +35,6 @@
 }
 
 :root {
-    --bg-color: #0a0a0a;
-    --text-main: #ffffff;
-    --text-muted: #a0a0a0;
-    --bg-text: #111111;
-    --link-color: #888888;
-    --grid-color: rgba(255, 255, 255, 0.03);
-    --glow-1: rgba(138, 43, 226, 0.2);
-    --glow-2: rgba(0, 191, 255, 0.2);
-}
-
-body.light-mode {
     --bg-color: #f0f2f5;
     --text-main: #1a1a1a;
     --text-muted: #555555;
@@ -54,6 +43,17 @@ body.light-mode {
     --grid-color: rgba(0, 0, 0, 0.03);
     --glow-1: rgba(255, 182, 255, 0.4);
     --glow-2: rgba(182, 255, 255, 0.4);
+}
+
+body.dark-mode {
+    --bg-color: #0a0a0a;
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --bg-text: #111111;
+    --link-color: #888888;
+    --grid-color: rgba(255, 255, 255, 0.03);
+    --glow-1: rgba(138, 43, 226, 0.2);
+    --glow-2: rgba(0, 191, 255, 0.2);
 }
 
 /* =========================================
@@ -191,13 +191,13 @@ main {
 .cursor-dot.hovered {
     width: 25px;
     height: 25px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border: 1px solid #ffffff;
-}
-
-body.light-mode .cursor-dot.hovered {
     background-color: rgba(0, 0, 0, 0.1);
     border: 1px solid #000000;
+}
+
+body.dark-mode .cursor-dot.hovered {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid #ffffff;
 }
 
 .cursor-outline.hovered {
@@ -284,14 +284,15 @@ nav {
     height: 100%;
     background-color: var(--link-color);
     transition: background-color 0.3s, transform 0.4s ease;
+    transform: translateX(100%);
 }
 
 .nav-links a:hover .half-moon {
     background-color: var(--text-main);
 }
 
-body.light-mode .half-moon {
-    transform: translateX(100%);
+body.dark-mode .half-moon {
+    transform: translateX(0);
 }
 
 /* =========================================
@@ -715,8 +716,8 @@ body.light-mode .half-moon {
 
 /* Text-Based Project Cards */
 .text-card {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 6px;
     padding: 2rem 1.8rem;
     display: flex;
@@ -726,21 +727,21 @@ body.light-mode .half-moon {
     transition: transform 0.4s ease, border-color 0.4s ease, background 0.4s ease;
 }
 
-body.light-mode .text-card {
-    background: rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+body.dark-mode .text-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .text-card:hover {
     transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.12);
     /* Brighter on hover */
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 0, 0, 0.1);
 }
 
-body.light-mode .text-card:hover {
-    background: rgba(0, 0, 0, 0.12);
-    border-color: rgba(0, 0, 0, 0.1);
+body.dark-mode .text-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .card-header {
